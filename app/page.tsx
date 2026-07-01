@@ -84,7 +84,7 @@ export default async function CatalogPage({ searchParams }: { searchParams: Sear
             <Link href="/?offer=true" className="link-primary">Ver todos</Link>
           </div>
           <div className="mobile-scroll">
-            {recommendedProducts.map(product => (
+            {recommendedProducts.map((product: ProductWithCategory) => (
               <ProductCard product={product} key={product.id} />
             ))}
           </div>
@@ -104,7 +104,7 @@ export default async function CatalogPage({ searchParams }: { searchParams: Sear
             )}
           </div>
           <div className="mobile-scroll">
-            {cat.products.map(product => (
+            {cat.products.map((product: ProductWithCategory) => (
               <ProductCard product={product} key={product.id} />
             ))}
           </div>
