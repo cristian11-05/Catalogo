@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 
-export default function BottomNav() {
+function BottomNavInner() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [hash, setHash] = useState('')
@@ -38,5 +38,13 @@ export default function BottomNav() {
         <span>Ofertas</span>
       </Link>
     </nav>
+  )
+}
+
+export default function BottomNav() {
+  return (
+    <Suspense fallback={null}>
+      <BottomNavInner />
+    </Suspense>
   )
 }
